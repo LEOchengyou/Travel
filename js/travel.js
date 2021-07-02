@@ -44,17 +44,16 @@ function pagination(newData,nowPage) {
     //console.log(newData);
     // 取得資料長度
     const dataTotal = newData.length;
-    //console.log(dataTotal);
-     // 要顯示在畫面上的資料數量，預設每一頁只顯示10筆資料。
-    const perpage = 8;
+     // 要顯示在畫面上的資料數量，預設每一頁只顯示8筆資料。
+    const perpage = 10;
     const pageTotal = Math.ceil(dataTotal / perpage);
-    //console.log(pageTotal);
     let currentPage = nowPage;
-    console.log(`全部資料:${pageTotal} 每一頁顯示:${perpage}筆`);
+    console.log(`全部資料頁數:${pageTotal} 每一頁顯示:${perpage}筆`);
   
     if (currentPage>pageTotal){
       currentPage=pageTotal;
     }
+    console.log(currentPage);
   //當前頁面去乘每一頁顯示得數量再減去每一頁顯示得數量，此時會得到 10 這個數字，但是我們是第 11 筆開始，所以要在 +1
     const minData = (currentPage*perpage)-perpage+1;
     const maxData = (currentPage*perpage);
@@ -76,8 +75,9 @@ function pagination(newData,nowPage) {
         hasPage: currentPage > 1,
         hasNext: currentPage < pageTotal,
     }
-    console.log(pageData);
-    addInf(newData);
+    //console.log(pageData);
+    //console.log(newData);
+    addInf(pageData);
     pageBtn(page);
 
 
@@ -129,7 +129,7 @@ function chooseInf(e){
             showData.push(originData[i].Zone);
              if(e.target.value=="全部行政區"){
                 newData.push(originData[i]);
-                console.log(newData);
+                //console.log(newData);
                 }else if(e.target.value==showData[i]){
                     newData.push(originData[i]);
                     }
@@ -160,6 +160,7 @@ function switchPage(e){
 
 //顯示內容
 function addInf(e){
+    //console.log(e);
     let str = '';
     let dataLen = e.length;
     for(i = 0; i<dataLen;i++){
