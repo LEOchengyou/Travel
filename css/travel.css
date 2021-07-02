@@ -1,0 +1,200 @@
+
+/*************************************************************************/
+
+.wrap{
+    width: 1024px;
+    margin: 0 auto;
+}
+.header{
+    background-image: url('https://upload.cc/i1/2021/04/16/DtY1xU.png');
+    background-repeat: no-repeat;
+}
+.header h1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 89px;
+    font-family:PingFangTC-Regular;
+    color: #FFFFFF;
+    font-size: 40px;
+}
+.areaSelect{
+    margin: 96px 279px 0px 293px;
+    width: 452px;
+    height: 48px;
+    background: rgba(255,255,255,0.70);
+    border: 3px solid #FFFFFF;
+    border-radius: 3px;
+    font-family:PingFangTC-Regular;
+    font-size: 18px;
+    color: #000000;
+    line-height: 21px;
+}
+.header option{
+    font-size: 21px;
+}
+.hotInf{
+    width: 800px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+    border-radius: 5px;
+    margin:72px 112px 0px 112px;
+}
+.hotInf h2{
+    font-family: AppleSystemUIFont;
+    font-size: 18px;
+    color: #000000;
+    padding: 20px 683px 0px 26px;
+
+}
+
+.hotInfli{
+    display: flex;
+    margin-top: 14px;
+    padding-bottom: 18px; ;
+}
+
+.hotInfli li{
+    padding: 11px 34px;
+    background: #8A82CC;
+    border-radius: 5px;
+    margin-left: 51px;
+    font-family: PingFangTC-Regular;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.divider .divIcon::before,.divIcon::after{
+    content:'';
+    flex-grow: 1;
+    border-top: 1px dashed #559AC8;
+    size: 3px;
+    
+}
+.divider{
+    width: 900px;
+    margin-left: 62px;
+}
+.divIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#559AC8 ;
+    margin-top: 37px;
+    
+}
+.areaTittle{
+    padding-top: 76px;
+    display: flex;
+    justify-content: center;
+    font-family: SFNSDisplay;
+    font-size: 36px;
+    color: #8A82CC;
+}
+.areaInfli {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 40px;
+    margin-top: 24px;
+}
+.areaInfli li{
+    margin-right: 16px;
+}
+.formContent{
+    margin-bottom: 36px;
+    box-shadow: 0 1px 3px 0 
+}
+.infLi{
+    width: 425px;
+    padding-left: 23px;
+}
+.infLi li{
+    margin-top: 16px;
+}
+.infLi li p img{
+    margin-right: 9px;
+}
+
+.infimg{
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-end;
+    padding-bottom: 14px; 
+    height: 155px;
+    width: 464px;
+    background-position: center;
+    background-size: 100%;
+
+}
+.formContent h4{
+    font-family: SFNSDisplay;
+    font-size: 24px;
+    color: #FFFFFF;
+    padding-left: 22px;
+}
+.formContent h5{
+    font-family: PingFangTC-Regular;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding-right :19px; ;
+}
+.infli-tel{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 22px;
+}
+.infli-tel li img{
+    margin-right: 9px;
+}
+
+
+.infimg:hover{
+    background-size: 120%;
+}
+
+.pageNum ul{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 41px;
+    margin-top: 13px;
+}
+.page-item{
+    margin-left: 20px;
+}
+.page-link {
+    text-decoration: none;
+    font-family: AppleSystemUIFont;
+    font-size: 14px;
+    color: #4A4A4A;
+}
+.page-link:hover{
+    color: cornflowerblue;
+}
+.active{
+    font-weight: 600;
+}
+.footer{
+    background: #559AC8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer h6{
+    padding-top: 24px;
+    font-family: AppleSystemUIFont;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+.footer p{
+    padding: 15px 0px 23px 0px;
+    font-family: AppleSystemUIFont;
+    color: #FFD366;
+    font-size: 14px;
+}
+.backtop{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+}
