@@ -55,15 +55,16 @@
     padding-bottom: 18px; ;
 }
 
-.hotInfli li{
-    padding: 11px 34px;
-    background: #8A82CC;
+.hotInfli li input{
     border-radius: 5px;
     margin-left: 51px;
-    font-family: PingFangTC-Regular;
     font-size: 20px;
     color: #FFFFFF;
+    padding: 11px 34px;
+    font-family: PingFangTC-Regular;
+    border: none;
 }
+
 .divider .divIcon::before,.divIcon::after{
     content:'';
     flex-grow: 1;

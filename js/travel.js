@@ -1,9 +1,7 @@
 let areaInfli = document.querySelector('.areaInfli');
 let areaSelect = document.querySelector('.areaSelect');
 let pageid = document.getElementById('pageid');
-let hotArea1 = document.querySelector('.hotArea1');
-let hotArea2 = document.querySelector('.hotArea2');
-let hotArea3 = document.querySelector('.hotArea3');
+let hotInfli = document.querySelector('.hotInfli');
 let showData = [];
 let originData = [];
 
@@ -125,7 +123,8 @@ function chooseInf(e){
     let showData = [];
     let newData=[];
     //console.log(showData)
-    if(e.target.nodeName==='SELECT'){
+    //SELECT為選單篩選  INPUT為熱門行政區篩選
+    if(e.target.nodeName==='SELECT' ||e.target.nodeName==='INPUT'){
         document.querySelector('.areaTittle').textContent=e.target.value;
         for(i=0;i<originData.length;i++){
             showData.push(originData[i].Zone);
@@ -137,10 +136,9 @@ function chooseInf(e){
                     }
         
         }
-    //console.log(newData);
+    console.log(newData);
     
     }
-    
     
     pagination(newData,1);
     
@@ -189,3 +187,4 @@ function addInf(e){
 //監聽
 areaSelect.addEventListener('change',chooseInf,false);
 pageid.addEventListener('click',switchPage,false);
+hotInfli.addEventListener('click',chooseInf,false);
