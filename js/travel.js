@@ -1,12 +1,15 @@
 let areaInfli = document.querySelector('.areaInfli');
 let areaSelect = document.querySelector('.areaSelect');
 let pageid = document.getElementById('pageid');
+let hotArea1 = document.querySelector('.hotArea1');
+let hotArea2 = document.querySelector('.hotArea2');
+let hotArea3 = document.querySelector('.hotArea3');
 let showData = [];
 let originData = [];
 
 
 //API
-var data = new XMLHttpRequest();
+const data = new XMLHttpRequest();
 data.open('GET','https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json','true');
 data.send(null);
 
@@ -15,7 +18,6 @@ data.onload =  function(){
     showData =str.result.records;
     originData = showData;
     addselect();
-    //addInf(showData);
     pagination(showData,1)
 }
 
@@ -32,7 +34,7 @@ function addselect(){
         selectList = ([...new Set(selectList)]);
     }
     for(let i=0;i<selectList.length;i++){
-        str+='<option value='+selectList[i]+'>'+selectList[i]+'</optoin>'
+        str+=`<option value=${selectList[i]}>${selectList[i]}</option>`
     }
     
     areaSelect.innerHTML+=str;
@@ -44,7 +46,7 @@ function pagination(newData,nowPage) {
     //console.log(newData);
     // 取得資料長度
     const dataTotal = newData.length;
-     // 要顯示在畫面上的資料數量，預設每一頁只顯示8筆資料。
+     // 要顯示在畫面上的資料數量，預設每一頁只顯示10筆資料。
     const perpage = 10;
     const pageTotal = Math.ceil(dataTotal / perpage);
     let currentPage = nowPage;
@@ -54,20 +56,20 @@ function pagination(newData,nowPage) {
       currentPage=pageTotal;
     }
     console.log(currentPage);
-  //當前頁面去乘每一頁顯示得數量再減去每一頁顯示得數量，此時會得到 10 這個數字，但是我們是第 11 筆開始，所以要在 +1
-    const minData = (currentPage*perpage)-perpage+1;
+    const minData = (currentPage*perpage)-perpage;
     const maxData = (currentPage*perpage);
     const pageData=[];
-    showData.forEach((newData, index) => {
+    console.log(minData);
+    console.log(maxData);
+    //console.log(newData);
 
-        // 獲取陣列索引，但因為索引是從 0 開始所以要 +1。
-        const num = index + 1;
-        
-        // 當 num 比 minData 大且又小於 maxData 就push進去新陣列。
-        if ( num >= minData && num <= maxData) {
-            pageData.push(newData);
+    for(i=0;i<newData.length;i++){
+        console.log(newData.length)
+        if ( i >= minData && i < maxData) {
+            pageData.push(newData[i]);
         }
-        })
+    }
+
     let page ={
         pageTotal,
         dataTotal,
@@ -75,7 +77,7 @@ function pagination(newData,nowPage) {
         hasPage: currentPage > 1,
         hasNext: currentPage < pageTotal,
     }
-    //console.log(pageData);
+    console.log(pageData);
     //console.log(newData);
     addInf(pageData);
     pageBtn(page);
@@ -127,20 +129,16 @@ function chooseInf(e){
         document.querySelector('.areaTittle').textContent=e.target.value;
         for(i=0;i<originData.length;i++){
             showData.push(originData[i].Zone);
-             if(e.target.value=="全部行政區"){
+             if(e.target.value=="請選擇行政區"){
                 newData.push(originData[i]);
-                //console.log(newData);
+                //console.log(originData);
                 }else if(e.target.value==showData[i]){
                     newData.push(originData[i]);
                     }
         
         }
-    console.log(newData);
+    //console.log(newData);
     
-    }
-    if(e.target.value=="請選擇行政區"){
-        alert('請選擇區域');
-        
     }
     
     
@@ -156,6 +154,7 @@ function switchPage(e){
     const page = e.target.dataset.page;
     console.log(page);
     pagination(showData, page);
+    scroll(0,0);
 }
 
 //顯示內容
